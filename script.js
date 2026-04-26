@@ -25,13 +25,24 @@ updateCounter();
 /* 🌳 GENERAR HOJAS EN EL ÁRBOL */
 const leavesContainer = document.querySelector(".leaves");
 
-for (let i = 0; i < 90; i++) {
+const leavesContainer = document.querySelector(".leaves");
+
+for (let i = 0; i < 120; i++) {
+    const t = Math.random() * Math.PI * 2;
+
+    // fórmula de corazón
+    const x = 16 * Math.pow(Math.sin(t), 3);
+    const y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
+
     const leaf = document.createElement("span");
     leaf.innerHTML = "💜";
 
-    leaf.style.left = Math.random() * 100 + "%";
-    leaf.style.top = Math.random() * 100 + "%";
-    leaf.style.fontSize = (10 + Math.random() * 12) + "px";
+    // escalar y centrar
+    leaf.style.left = (150 + x * 8) + "px";
+    leaf.style.top = (120 + y * 8) + "px";
+
+    leaf.style.fontSize = (10 + Math.random() * 10) + "px";
+    leaf.style.opacity = 0.7 + Math.random() * 0.3;
 
     leavesContainer.appendChild(leaf);
 }
