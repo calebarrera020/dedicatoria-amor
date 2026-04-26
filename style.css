@@ -48,8 +48,11 @@
 /* 💜 Hojas (corazones) */
 .leaves {
     position: absolute;
-    width: 100%;
+    width: 300px;
     height: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
 }
 
 /* hojas individuales */
