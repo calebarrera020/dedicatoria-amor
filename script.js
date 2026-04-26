@@ -1,6 +1,7 @@
 // 💕 CAMBIA ESTA FECHA
-const startDate = new Date("2024-12-24T00:00:00");
+const startDate = new Date("2024-01-01T00:00:00");
 
+/* ⏱️ CONTADOR */
 function updateCounter() {
     const now = new Date();
     let diff = now - startDate;
@@ -21,20 +22,33 @@ function updateCounter() {
 setInterval(updateCounter, 1000);
 updateCounter();
 
-/* 🍃 Corazones cayendo */
+/* 🌳 GENERAR HOJAS EN EL ÁRBOL */
+const leavesContainer = document.querySelector(".leaves");
+
+for (let i = 0; i < 90; i++) {
+    const leaf = document.createElement("span");
+    leaf.innerHTML = "💜";
+
+    leaf.style.left = Math.random() * 100 + "%";
+    leaf.style.top = Math.random() * 100 + "%";
+    leaf.style.fontSize = (10 + Math.random() * 12) + "px";
+
+    leavesContainer.appendChild(leaf);
+}
+
+/* 🍃 HOJAS CAYENDO DESDE EL ÁRBOL */
 function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("falling-heart");
     heart.innerHTML = "💜";
 
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+    // solo desde la zona del árbol (lado derecho)
+    heart.style.left = (65 + Math.random() * 20) + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 2) + "s";
 
     document.body.appendChild(heart);
 
-    setTimeout(() => {
-        heart.remove();
-    }, 5000);
+    setTimeout(() => heart.remove(), 6000);
 }
 
-setInterval(createHeart, 500);
+setInterval(createHeart, 600);
