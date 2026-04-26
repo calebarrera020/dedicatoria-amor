@@ -58,6 +58,9 @@
     color: #B06AB3;
     opacity: 0.9;
     animation: float 6s infinite ease-in-out;
+}
+
+.leaves span {
     text-shadow: 0 0 8px rgba(176, 106, 179, 0.5);
 }
 
