@@ -1,7 +1,7 @@
-// 💕 CAMBIA ESTA FECHA
-const startDate = new Date("2024-01-01T00:00:00");
+// 👉 CAMBIA ESTA FECHA
+const startDate = new Date("2024-12-24T00:00:00");
 
-/* ⏱️ CONTADOR */
+/* contador */
 function updateCounter() {
     const now = new Date();
     let diff = now - startDate;
@@ -22,38 +22,38 @@ function updateCounter() {
 setInterval(updateCounter, 1000);
 updateCounter();
 
-/* 🌳 GENERAR HOJAS EN EL ÁRBOL */
-const leavesContainer = document.querySelector(".leaves");
+/* 🌳 hojas formando corazón (ESTO ES LO IMPORTANTE) */
+const container = document.querySelector(".leaves");
 
-const leavesContainer = document.querySelector(".leaves");
+const centerX = 150;
+const centerY = 130;
+const scale = 7;
 
-for (let i = 0; i < 120; i++) {
+for (let i = 0; i < 140; i++) {
+
     const t = Math.random() * Math.PI * 2;
 
-    // fórmula de corazón
     const x = 16 * Math.pow(Math.sin(t), 3);
     const y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
 
     const leaf = document.createElement("span");
     leaf.innerHTML = "💜";
 
-    // escalar y centrar
-    leaf.style.left = (150 + x * 7) + "px";
-    leaf.style.top = (150 + y * 7) + "px";
+    leaf.style.left = (centerX + x * scale) + "px";
+    leaf.style.top = (centerY + y * scale) + "px";
 
-    leaf.style.fontSize = (10 + Math.random() * 10) + "px";
-    leaf.style.opacity = 0.7 + Math.random() * 0.3;
+    leaf.style.fontSize = (8 + Math.random() * 10) + "px";
+    leaf.style.opacity = 0.7;
 
-    leavesContainer.appendChild(leaf);
+    container.appendChild(leaf);
 }
 
-/* 🍃 HOJAS CAYENDO DESDE EL ÁRBOL */
+/* 🍃 hojas cayendo desde el árbol */
 function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("falling-heart");
     heart.innerHTML = "💜";
 
-    // solo desde la zona del árbol (lado derecho)
     heart.style.left = (65 + Math.random() * 20) + "vw";
     heart.style.animationDuration = (4 + Math.random() * 2) + "s";
 
