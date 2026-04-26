@@ -4,14 +4,14 @@
     box-sizing: border-box;
 }
 
-.Love__You {
-    min-height: 100vh;
+body {
     background: linear-gradient(135deg, #F8E9F4, #EFE1F7);
     font-family: Arial, sans-serif;
     color: #5E2B5E;
     overflow: hidden;
 }
 
+/* layout */
 .container {
     display: flex;
     justify-content: space-between;
@@ -21,16 +21,6 @@
 
 .text {
     width: 40%;
-    font-size: 18px;
-}
-
-.text h2 {
-    margin-bottom: 15px;
-}
-
-.time {
-    margin-top: 20px;
-    font-weight: bold;
 }
 
 #counter {
@@ -38,14 +28,14 @@
     font-size: 22px;
 }
 
-/* 🌳 Árbol */
+/* árbol */
 .tree {
     position: relative;
     width: 320px;
     height: 420px;
 }
 
-/* 💜 Hojas (corazones) */
+/* hojas */
 .leaves {
     position: absolute;
     width: 300px;
@@ -55,25 +45,19 @@
     top: 0;
 }
 
-/* hojas individuales */
 .leaves span {
     position: absolute;
     color: #B06AB3;
-    opacity: 0.9;
-    animation: float 6s infinite ease-in-out;
+    animation: float 5s infinite ease-in-out;
 }
 
-.leaves span {
-    text-shadow: 0 0 8px rgba(176, 106, 179, 0.5);
-}
-
-/* movimiento suave tipo viento */
+/* movimiento suave */
 @keyframes float {
-    0%,100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-12px) rotate(5deg); }
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
 
-/* 🌱 Tronco */
+/* tronco */
 .trunk {
     position: absolute;
     bottom: 40px;
@@ -84,7 +68,7 @@
     border-radius: 0 0 20px 20px;
 }
 
-/* 🌿 Césped */
+/* césped */
 .ground {
     position: absolute;
     bottom: 0;
@@ -94,7 +78,7 @@
     border-radius: 20px;
 }
 
-/* 🍃 Corazones cayendo */
+/* corazones cayendo */
 .falling-heart {
     position: fixed;
     top: -20px;
@@ -105,11 +89,11 @@
 
 @keyframes fall {
     0% {
-        transform: translateY(0) translateX(0) rotate(0deg);
+        transform: translateY(0);
         opacity: 1;
     }
     100% {
-        transform: translateY(100vh) translateX(40px) rotate(180deg);
+        transform: translateY(100vh);
         opacity: 0;
     }
 }
