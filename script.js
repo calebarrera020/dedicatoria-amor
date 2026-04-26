@@ -38,8 +38,8 @@ for (let i = 0; i < 120; i++) {
     leaf.innerHTML = "💜";
 
     // escalar y centrar
-    leaf.style.left = (150 + x * 8) + "px";
-    leaf.style.top = (120 + y * 8) + "px";
+    leaf.style.left = (150 + x * 7) + "px";
+    leaf.style.top = (150 + y * 7) + "px";
 
     leaf.style.fontSize = (10 + Math.random() * 10) + "px";
     leaf.style.opacity = 0.7 + Math.random() * 0.3;
