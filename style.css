@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Love__You {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #F8E9F4, #EFE1F7);
+    font-family: Arial, sans-serif;
+    color: #5E2B5E;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px;
+}
+
+.text {
+    width: 40%;
+    font-size: 18px;
+}
+
+.text h2 {
+    margin-bottom: 15px;
+}
+
+.time {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#counter {
+    margin-top: 10px;
+    font-size: 22px;
+}
+
+/* 🌳 Árbol */
+.tree {
+    position: relative;
+    width: 300px;
+    height: 400px;
+}
+
+/* 💜 Copa */
+.heart {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    animation: beat 2s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 240px;
+    background: linear-gradient(180deg, #B06AB3, #7F3FBF);
+    border-radius: 150px 150px 0 0;
+}
+
+.heart::before {
+    left: 150px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+/* 🌱 Tronco */
+.trunk {
+    position: absolute;
+    bottom: 40px;
+    left: 130px;
+    width: 40px;
+    height: 100px;
+    background: #6A3E6A;
+    border-radius: 0 0 15px 15px;
+}
+
+/* 🌿 Césped */
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(180deg, #6ECF68, #3FA34D);
+    border-radius: 20px;
+}
+
+/* 💓 Latido */
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* 🍃 Corazones cayendo */
+.falling-heart {
+    position: fixed;
+    top: -20px;
+    font-size: 16px;
+    color: #B06AB3;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
