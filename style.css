@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap");
+
+:root {
+    --paper: #fff8e9;
+    --ink: #4f4038;
+    --trunk: #8b5a32;
+    --trunk-dark: #4a2b19;
+    --trunk-light: #c28a54;
+    --ground: #568f4a;
+    --ground-dark: #356b35;
+    --ground-light: #85b85c;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    overflow-x: hidden;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.8), transparent 28%),
+        linear-gradient(135deg, #ead8bd, #d8bfa0);
+    font-family: "Kalam", cursive;
+}
+
+.love-card {
+    position: relative;
+    width: min(1120px, 100%);
+    min-height: 650px;
+    display: grid;
+    grid-template-columns: 42% 58%;
+    overflow: hidden;
+    background:
+        repeating-linear-gradient(0deg, rgba(95, 70, 45, 0.025) 0 1px, transparent 1px 5px),
+        var(--paper);
+    border: 1px solid rgba(80, 60, 45, 0.16);
+    box-shadow: 0 22px 60px rgba(74, 48, 29, 0.25);
+}
+
+.message {
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 90px 0 42px 48px;
+}
+
+h1,
+h2 {
+    font-size: clamp(1.35rem, 2.2vw, 2rem);
+    line-height: 1.25;
+}
+
+.dedication p {
+    max-width: 440px;
+    margin-top: 38px;
+    font-size: clamp(1.2rem, 2vw, 1.75rem);
+    line-height: 1.45;
+}
+
+.elapsed-time {
+    white-space: nowrap;
+}
+
+#counter {
+    margin-top: 5px;
+    font-size: clamp(1.1rem, 2.1vw, 1.8rem);
+    line-height: 1.2;
+}
+
+.tree {
+    position: relative;
+    z-index: 2;
+    align-self: end;
+    width: 100%;
+    height: 620px;
+}
+
+.leaves {
+    position: absolute;
+    z-index: 3;
+    top: -8px;
+    left: 50%;
+    width: 560px;
+    height: 535px;
+    transform: translateX(-50%);
+}
+
+.leaf {
+    position: absolute;
+    display: block;
+    color: var(--leaf-color);
+    font-family: Georgia, serif;
+    line-height: 1;
+    filter: drop-shadow(0 1px 1px rgba(116, 54, 37, 0.2));
+    transform: translate(-50%, -50%) rotate(var(--rotation));
+    animation: breathe var(--duration) ease-in-out infinite alternate;
+}
+
+.trunk,
+.branch {
+    position: absolute;
+    z-index: 2;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.18), transparent 20% 72%, rgba(0, 0, 0, 0.24)),
+        repeating-linear-gradient(82deg, rgba(74, 43, 25, 0.32) 0 3px, transparent 3px 13px),
+        linear-gradient(180deg, var(--trunk-light), var(--trunk) 48%, var(--trunk-dark));
+    box-shadow: inset -10px 0 16px rgba(45, 24, 13, 0.35), inset 8px 0 12px rgba(255, 225, 174, 0.18);
+}
+
+.trunk {
+    bottom: 0;
+    left: calc(50% - 42px);
+    width: 92px;
+    height: 270px;
+    border-radius: 48% 55% 18px 22px;
+    clip-path: polygon(42% 0, 64% 0, 69% 18%, 66% 38%, 76% 64%, 96% 100%, 2% 100%, 20% 66%, 29% 40%, 33% 18%);
+    transform: rotate(-1deg);
+}
+
+.trunk::before,
+.trunk::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+}
+
+.trunk::before {
+    top: 12px;
+    bottom: 14px;
+    left: 18px;
+    width: 13px;
+    border-radius: 50%;
+    background:
+        radial-gradient(ellipse at center, rgba(72, 39, 21, 0.45) 0 18%, transparent 20%),
+        linear-gradient(180deg, transparent, rgba(60, 33, 20, 0.34), transparent);
+    opacity: 0.55;
+}
+
+.trunk::after {
+    right: 10px;
+    bottom: 18px;
+    width: 38px;
+    height: 28px;
+    border: 3px solid rgba(70, 38, 22, 0.42);
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-radius: 50%;
+    transform: rotate(-18deg);
+}
+
+.branch {
+    bottom: 230px;
+    width: 138px;
+    height: 32px;
+    border-radius: 55% 75% 75% 55%;
+    clip-path: polygon(0 4%, 100% 39%, 100% 61%, 0 96%);
+    transform-origin: left center;
+}
+
+.branch-left {
+    left: calc(50% - 23px);
+    transform: rotate(207deg);
+}
+
+.branch-right {
+    left: calc(50% + 17px);
+    transform: rotate(-34deg);
+}
+
+.branch::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 24px;
+    width: 58px;
+    height: 3px;
+    border-radius: 999px;
+    background: rgba(70, 38, 22, 0.38);
+}
+
+.ground {
+    position: absolute;
+    z-index: 4;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 42px;
+    background:
+        radial-gradient(ellipse at 50% 0, var(--ground-light) 0 10%, transparent 11%) 0 0 / 34px 18px repeat-x,
+        linear-gradient(180deg, var(--ground), var(--ground-dark));
+    border-top: 3px solid #477c3f;
+    box-shadow:
+        inset 0 8px 12px rgba(255, 255, 255, 0.12),
+        0 -2px 6px rgba(53, 107, 53, 0.15);
+}
+
+.ground::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 34px;
+    left: 0;
+    height: 22px;
+    background:
+        repeating-linear-gradient(75deg, transparent 0 12px, var(--ground-dark) 13px 15px, transparent 16px 25px),
+        repeating-linear-gradient(105deg, transparent 0 17px, var(--ground) 18px 20px, transparent 21px 31px);
+    clip-path: polygon(0 100%, 1% 35%, 2% 100%, 4% 10%, 5% 100%, 7% 45%, 8% 100%, 10% 20%, 11% 100%, 13% 50%, 14% 100%, 16% 8%, 17% 100%, 20% 35%, 21% 100%, 24% 15%, 25% 100%, 28% 45%, 29% 100%, 32% 5%, 33% 100%, 36% 40%, 37% 100%, 40% 20%, 41% 100%, 44% 48%, 45% 100%, 48% 10%, 49% 100%, 52% 38%, 53% 100%, 56% 18%, 57% 100%, 60% 45%, 61% 100%, 64% 8%, 65% 100%, 68% 35%, 69% 100%, 72% 20%, 73% 100%, 76% 48%, 77% 100%, 80% 12%, 81% 100%, 84% 38%, 85% 100%, 88% 18%, 89% 100%, 92% 45%, 93% 100%, 96% 10%, 97% 100%, 100% 30%, 100% 100%);
+}
+
+.falling-heart {
+    position: absolute;
+    z-index: 4;
+    color: var(--leaf-color);
+    font-family: Georgia, serif;
+    line-height: 1;
+    pointer-events: none;
+    animation: fall var(--fall-time) ease-in forwards;
+}
+
+@keyframes breathe {
+    to {
+        transform: translate(-50%, calc(-50% - 4px)) rotate(var(--rotation)) scale(1.08);
+    }
+}
+
+@keyframes fall {
+    0% {
+        opacity: 0;
+        transform: translate(0, -10px) rotate(0);
+    }
+    12% {
+        opacity: 0.85;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--drift), 440px) rotate(260deg);
+    }
+}
+
+@media (max-width: 760px) {
+    body {
+        padding: 0;
+        place-items: start center;
+    }
+
+    .love-card {
+        min-height: 100vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        box-shadow: none;
+    }
+
+    .message {
+        min-height: 45vh;
+        padding: 42px 24px 8px;
+    }
+
+    .dedication p {
+        margin-top: 20px;
+    }
+
+    .elapsed-time {
+        white-space: normal;
+    }
+
+    .tree {
+        height: 500px;
+        transform: scale(0.78);
+        transform-origin: bottom center;
+    }
+
+    .leaves {
+        top: -35px;
+    }
+
+    .ground {
+        bottom: 0;
+    }
+}
